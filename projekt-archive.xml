@@ -1,0 +1,45 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 https://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>projekt-archive</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <!-- src/ Ordner -->
+        <fileSet>
+            <directory>src</directory>
+            <outputDirectory>src</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+
+        <!-- apidocs/ -->
+        <fileSet>
+            <directory>target/reports/apidocs</directory>
+            <outputDirectory>apidocs</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+
+        <!-- jacoco/ von target/site/jacoco -->
+        <fileSet>
+            <directory>target/site/jacoco</directory>
+            <outputDirectory>jacoco</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+    <!-- pom.xml -->
+    <files>
+        <file>
+            <source>pom.xml</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+</assembly>
