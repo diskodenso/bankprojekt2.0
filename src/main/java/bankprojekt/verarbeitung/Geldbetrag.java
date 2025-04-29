@@ -136,8 +136,11 @@ public class Geldbetrag implements Comparable<Geldbetrag>{
 		if (this.waehrung == zielWaehrung) return this;
 		double betragInEuro = this.betrag / this.waehrung.getKursZuEuro();
 		double betragInZielWaehrung = betragInEuro * zielWaehrung.getKursZuEuro();
-		System.out.println("betrag in zielwaehrung" +betragInZielWaehrung);
-		return new Geldbetrag(betragInZielWaehrung, zielWaehrung);
+
+		// Verwende Doublerounder und round() 2 nachkommastellen
+		double gerundeterBetrag = Doubleround.round(betragInZielWaehrung, 2);
+
+		return new Geldbetrag(gerundeterBetrag, zielWaehrung);
 
 	}
 
