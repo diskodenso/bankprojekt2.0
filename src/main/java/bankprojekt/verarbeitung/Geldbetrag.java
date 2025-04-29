@@ -1,6 +1,7 @@
 package bankprojekt.verarbeitung;
 
 import bankprojekt.geld.Waehrung;
+import org.decimal4j.util.DoubleRounder;
 
 /**
  * Ein Geldbetrag mit Währung
@@ -138,7 +139,7 @@ public class Geldbetrag implements Comparable<Geldbetrag>{
 		double betragInZielWaehrung = betragInEuro * zielWaehrung.getKursZuEuro();
 
 		// Verwende Doublerounder und round() 2 nachkommastellen
-		double gerundeterBetrag = Doubleround.round(betragInZielWaehrung, 2);
+		double gerundeterBetrag = DoubleRounder.round(betragInZielWaehrung, 2);
 
 		return new Geldbetrag(gerundeterBetrag, zielWaehrung);
 
