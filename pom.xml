@@ -14,11 +14,13 @@
     </properties>
 
     <dependencies>
+        <!-- Dezimal4j Dependency -->
         <dependency>
             <groupId>org.decimal4j</groupId>
             <artifactId>decimal4j</artifactId>
             <version>1.0.3</version>
         </dependency>
+        <!-- JUnit Dependency -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -37,7 +39,7 @@
                 <executions>
                     <execution>
                         <id>make-assembly</id>
-                        <phase>install</phase> <!-- jetzt korrekt -->
+                        <phase>install</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
@@ -90,7 +92,7 @@
                             <goal>javadoc</goal>
                         </goals>
                         <configuration>
-                            <show>package</show> <!-- mindestens package-Sichtbarkeit -->
+                            <show>package</show>
                             <failOnError>false</failOnError>
                         </configuration>
                     </execution>
