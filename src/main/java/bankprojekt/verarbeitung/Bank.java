@@ -109,6 +109,7 @@ public class Bank {
      * @param betrag der abzuhebende Betrag
      * @return true, wenn die Abhebung erfolgreich war, sonst false
      * @throws KontonummerNichtVorhandenException wenn das Konto nicht existiert
+     * @throws GesperrtException wenn das Konto gesperrt ist
      */
     public boolean geldAbheben(long von, Geldbetrag betrag) throws KontonummerNichtVorhandenException, GesperrtException {
         Konto konto = konten.get(von);
@@ -170,6 +171,7 @@ public class Bank {
      * @param verwendungszweck der Verwendungszweck der Überweisung
      * @return true, wenn die Überweisung erfolgreich war, sonst false
      * @throws KontonummerNichtVorhandenException wenn eine der Kontonummern nicht existiert
+     * @throws GesperrtException wenn Sender oder Empfänger gesperrt sind
      */
     public boolean geldUeberweisen(long sender,
                                    long empfänger,
@@ -197,5 +199,17 @@ public class Bank {
             // optional: src.protokolliereVerwendungszweck(verwendungszweck);
             return true;
         }
+    }
+    /**
+     * Fügt ein (Mock-)Konto in die Bank-Kontenliste ein und gibt die
+     * von der Bank vergebene Kontonummer zurück.
+     *
+     * @param konto das einzufügende Konto (z.B. ein Mockito-Mock im Test)
+     * @return die neu vergebene Kontonummer
+     */
+    public synchronized long mockEinfuegen(Konto konto){
+        long kontoNummer = generiereKontonummer();
+        konten.put(kontoNummer, konto);
+        return kontoNummer;
     }
 }
