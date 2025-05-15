@@ -196,7 +196,6 @@ public class Bank {
                 return false;
             }
             dst.einzahlen(betrag);
-            // optional: src.protokolliereVerwendungszweck(verwendungszweck);
             return true;
         }
     }
