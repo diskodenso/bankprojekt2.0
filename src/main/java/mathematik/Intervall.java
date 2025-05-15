@@ -23,10 +23,19 @@ package mathematik;
         }
 
         // region SETTER
+
+        /**
+         * Setzt this.untergrenze auf den Wert des parameters
+         * @param untergrenze wird this.untergrenze gesetzt
+         */
         private void setUntergrenze(T untergrenze) {
             this.untergrenze = untergrenze;
         }
 
+        /**
+         * Setzt this.untergrenze auf den Wert des parameters
+         * @param obergrenze wird this.obergrenze gesetzt
+         */
         private void setObergrenze(T obergrenze) {
             this.obergrenze = obergrenze;
         }
@@ -51,9 +60,8 @@ package mathematik;
 
         /**
          *
-         * @param wert wert im Intervall enthalten ist, d.h. ob wert größer als die untere Grenze des
          * Intervalles ist und kleiner als die obere.
-         * @param wert der zu prüfende Wert
+         * @param wert wert im Intervall enthalten ist, d.h. ob wert größer als die untere Grenze des
          * @return true wenn wert im Intervall enthalten ist
          */
         public <E extends T> boolean enthaelt(E wert){
